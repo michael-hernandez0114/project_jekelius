@@ -56,14 +56,25 @@ public class jekelius {
 		
 	}
 	
-	public String getOldestAncestor(Tree root, String parentName) {
+	public boolean getOldestAncestor(Tree node, String name) {
 		
-		if(root == null) {
-			return " ";
+		
+		if(node == null) {
+			return false;
 		}
 		
+		if(node.name == name) {
+			JOptionPane.showMessageDialog(null, "Found name");
+			return true;
+		}
 		
-		return "abc";
+		if(getOldestAncestor(node.left, name) || getOldestAncestor(node.right, name)) {
+			
+			JOptionPane.showMessageDialog(null, "Oldest ancestor is: " + name);
+			
+			return true;
+		}
+		return false;
 	}
 	
 	public void traverseTree(Tree root) {
@@ -85,21 +96,19 @@ public class jekelius {
 		
 		//boolean keepEnteringNodes = true;
 		
-		jekelius familyTree = new jekelius();
-		
-		familyTree.initializeTree();
-			
+//		jekelius familyTree = new jekelius();
+//		
+//		familyTree.initializeTree();
+//			
 		name = JOptionPane.showInputDialog("Please enter a name");
 		//parentName = JOptionPane.showInputDialog("Please enter a parent name");
 			
-			
-		
-
-		
+		JOptionPane.showMessageDialog(null, "You entered: " + name);
 		jekelius tree = new jekelius();
 		
 		tree.makeSimpleTree();
-		tree.traverseTree(tree.root);
+		//tree.traverseTree(tree.root);
+		tree.getOldestAncestor(tree.root, name);
 		
 		
 		
