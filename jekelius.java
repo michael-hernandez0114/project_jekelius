@@ -13,6 +13,12 @@ public class jekelius {
 		Tree third = new Tree("Prince");
 		Tree fourth = new Tree("Karl");
 		Tree fifth = new Tree("Leah");
+		Tree sixth = new Tree("Mark");
+		Tree seventh = new Tree("Henry");
+		Tree eighth = new Tree("Bruce");
+		Tree ninth = new Tree("Dash");
+		Tree tenth = new Tree("Drew");
+		Tree eleventh = new Tree("Betsy");
 		
 		root = first;
 		
@@ -22,8 +28,25 @@ public class jekelius {
 		second.left = fourth;
 		second.right = fifth;
 		
+		fourth.left = eighth;
+		fourth.right = ninth;
+		
+		third.left = sixth;
+		third.right = seventh;
+		
+		sixth.left = tenth;
+		sixth.right = eleventh;
+			
 		
 	}
+	
+	public void initializeTree() {
+		
+		Tree rootNode = new Tree("root");
+		
+		root = rootNode;
+	}
+	
 	
 	public void addTreeNode(Tree root, String childName, String parentName) {
 		
@@ -34,6 +57,10 @@ public class jekelius {
 	}
 	
 	public String getOldestAncestor(Tree root, String parentName) {
+		
+		if(root == null) {
+			return " ";
+		}
 		
 		
 		return "abc";
@@ -54,16 +81,25 @@ public class jekelius {
 		
 		String name, parentName;
 		
-		int test = 5;
+		//int entries = 0;
 		
+		//boolean keepEnteringNodes = true;
+		
+		jekelius familyTree = new jekelius();
+		
+		familyTree.initializeTree();
+			
 		name = JOptionPane.showInputDialog("Please enter a name");
+		//parentName = JOptionPane.showInputDialog("Please enter a parent name");
+			
+			
 		
-		parentName = JOptionPane.showInputDialog("Please enter a parent name");
+
 		
-		jekelius testing = new jekelius();
+		jekelius tree = new jekelius();
 		
-		testing.makeSimpleTree();
-		testing.traverseTree(testing.root);
+		tree.makeSimpleTree();
+		tree.traverseTree(tree.root);
 		
 		
 		
