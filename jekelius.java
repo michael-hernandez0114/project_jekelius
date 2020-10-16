@@ -25,8 +25,22 @@ public class jekelius {
 		
 	}
 	
+	public void addTreeNode(Tree root, String childName, String parentName) {
+		
+		//traverse the tree to find the parent name node
+		//then add the child in the left or right node
+		
+		
+	}
+	
+	public String getOldestAncestor(Tree root, String parentName) {
+		
+		
+		return "abc";
+	}
+	
 	public void traverseTree(Tree root) {
-		if(root ==null) {
+		if(root == null) {
 			return;
 		}
 		
