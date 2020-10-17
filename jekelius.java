@@ -83,15 +83,16 @@ public class jekelius {
 		return left || right;
 	}
 	
-	public void traverseTree(Tree root) {
-		if(root == null) {
-			return;
-		}
-		
-		JOptionPane.showMessageDialog(null, "Name is: " + root.name + " ");
-		traverseTree(root.left);
-		traverseTree(root.right);
-	}
+	//used for testing
+//	public void traverseTree(Tree root) {
+//		if(root == null) {
+//			return;
+//		}
+//		
+//		JOptionPane.showMessageDialog(null, "Name is: " + root.name + " ");
+//		traverseTree(root.left);
+//		traverseTree(root.right);
+//	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -100,14 +101,6 @@ public class jekelius {
 		
 		boolean foundName;
 		
-		//int entries = 0;
-		
-		//boolean keepEnteringNodes = true;
-		
-//		jekelius familyTree = new jekelius();
-//		
-//		familyTree.initializeTree();
-//			
 		name = JOptionPane.showInputDialog("Please enter a name");
 		//parentName = JOptionPane.showInputDialog("Please enter a parent name");
 			
@@ -115,7 +108,6 @@ public class jekelius {
 		jekelius tree = new jekelius();
 		
 		tree.makeSimpleTree();
-		//tree.traverseTree(tree.root);
 		foundName = tree.findGivenName(tree.root, name);
 		
 		//JOptionPane.showMessageDialog(null, "Found name: " + foundName);
@@ -126,7 +118,6 @@ public class jekelius {
 		else {
 			JOptionPane.showMessageDialog(null, "No ancestor found for: " + name);
 		}
-		
 		
 		
 		// make tree with name and parent relationships
