@@ -56,25 +56,31 @@ public class jekelius {
 		
 	}
 	
-	public boolean getOldestAncestor(Tree node, String name) {
+	public boolean findGivenName(Tree node, String name) {
+		
+		boolean left, right;
 		
 		
 		if(node == null) {
 			return false;
 		}
 		
-		if(node.name == name) {
-			JOptionPane.showMessageDialog(null, "Found name");
+		if(node.name.equals(name)) {
+			//JOptionPane.showMessageDialog(null, "Found name");
 			return true;
 		}
 		
-		if(getOldestAncestor(node.left, name) || getOldestAncestor(node.right, name)) {
-			
-			JOptionPane.showMessageDialog(null, "Oldest ancestor is: " + name);
-			
-			return true;
-		}
-		return false;
+		left = findGivenName(node.left, name);
+		
+		right = findGivenName(node.right, name);
+		
+//		if(findGivenName(node.right, name)) {
+//			
+//			//JOptionPane.showMessageDialog(null, "Oldest ancestor is: " + name);
+//			
+//			return true;
+//		}
+		return left || right;
 	}
 	
 	public void traverseTree(Tree root) {
@@ -92,6 +98,8 @@ public class jekelius {
 		
 		String name, parentName;
 		
+		boolean foundName;
+		
 		//int entries = 0;
 		
 		//boolean keepEnteringNodes = true;
@@ -108,7 +116,16 @@ public class jekelius {
 		
 		tree.makeSimpleTree();
 		//tree.traverseTree(tree.root);
-		tree.getOldestAncestor(tree.root, name);
+		foundName = tree.findGivenName(tree.root, name);
+		
+		//JOptionPane.showMessageDialog(null, "Found name: " + foundName);
+		
+		if(foundName) {
+			JOptionPane.showMessageDialog(null, "Input name was found!\nAncestor is: " + tree.root.name);
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "No ancestor found for: " + name);
+		}
 		
 		
 		
